@@ -38,8 +38,7 @@
     "require-in-the-middle": "7.5.2",
     "sonner": "^2.0.5",
     "tailwind-merge": "^3.3.0",
-    "tailwindcss": "^4.1.7",
-    "zustand": "^5.0.4"
+    "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -60,3 +59,4 @@
     "typescript-eslint": "^8.30.1"
   }
 }
+
