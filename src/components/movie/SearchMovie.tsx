@@ -1,23 +1,28 @@
 'use client';
 
 import { VirtuosoGrid } from 'react-virtuoso';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useParams } from 'next/navigation';
 import { useSearchMoviesInfinite } from '@/hooks/useMovies';
 import Movie from '@/components/movie/list/Movie';
 import MoviesSkeleton from '@/components/skeleton/MoviesSkeleton';
 import { SearchedMovieType, SearchMovieResponse } from '@/types/movie';
+import { getLocaleFromLang } from '@/utils/language';
 
 interface SearchMovieProps {
   initialData: SearchMovieResponse;
 }
 
 export default function SearchMovie({ initialData }: SearchMovieProps) {
+  const params = useParams();
+  const lang = params?.lang as string;
+  const language = getLocaleFromLang(lang);
+  
   const searchParams = useSearchParams();
   const query = searchParams?.get('query')?.trim() || '';
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useSearchMoviesInfinite(
-      { query, language: 'ko-KR' },
+      { query, language },
       {
         initialData: {
           pages: [initialData],

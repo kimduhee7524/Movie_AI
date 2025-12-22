@@ -6,9 +6,10 @@ import {
   SearchMovieResponse,
   MovieDetailType,
 } from '@/types/movie';
+import { locales } from '@/utils/language';
 
 export const getPopularMovies = async (
-  { page = 1, language = 'ko-KR' }: GetMoviesParams,
+  { page = 1, language = locales.ko }: GetMoviesParams,
   options?: { next?: NextFetchRequestConfig; cache?: RequestCache }
 ): Promise<MovieResponse> => {
   return fetchTmdb<MovieResponse>(
@@ -22,7 +23,7 @@ export const getPopularMovies = async (
 };
 
 export const getSearchMovies = async (
-  { query, language = 'ko-KR', page = 1 }: GetSearchMoviesParams,
+  { query, language = locales.ko, page = 1 }: GetSearchMoviesParams,
   options?: { next?: NextFetchRequestConfig; cache?: RequestCache }
 ): Promise<SearchMovieResponse> => {
   return fetchTmdb<SearchMovieResponse>(
@@ -38,7 +39,7 @@ export const getSearchMovies = async (
 
 export const getMovieDetail = async (
   movieId: number,
-  language = 'ko-KR',
+  language: string = locales.ko,
   options?: { next?: NextFetchRequestConfig; cache?: RequestCache }
 ): Promise<MovieDetailType> => {
   return fetchTmdb<MovieDetailType>(

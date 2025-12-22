@@ -1,4 +1,5 @@
 const TMDB_API_BASE = 'https://api.themoviedb.org/3';
+import { locales } from '@/utils/language';
 
 function getTmdbToken(): string {
   const token = process.env.TMDB_API_TOKEN;
@@ -35,7 +36,7 @@ export async function fetchTmdb<T>(
   } else {
     // 서버 사이드: TMDB 직접 호출
     const searchParams = new URLSearchParams({
-      language: 'ko-KR',
+      language: locales.ko,
       ...params,
     });
 

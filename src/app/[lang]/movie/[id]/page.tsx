@@ -28,7 +28,7 @@ export default async function MovieDetailPage({
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <BackButton to="/" />
+      <BackButton to={`/${lang}`} />
 
       <Suspense fallback={<MovieDetailSkeleton />}>
         <MovieDetailContent movieDetail={movieDetail} lang={lang} />

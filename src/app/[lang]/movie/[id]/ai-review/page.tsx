@@ -18,7 +18,7 @@ export default async function AIReviewPage({ params }: AIReviewPageProps) {
   }
 
   const movieDetail = await getMovieDetail(movieIdNumber, 'ko-KR', {
-    cache: 'force-cache', // 영구 캐시 
+    cache: 'force-cache', // 영구 캐시
   });
 
   return (

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
 import { ReactQueryProvider } from './providers';
 import Navbar from '@/layouts/components/Navbar';
+import { locales } from '@/utils/language';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
     icon: '/vite.svg',
   },
 };
+
+export async function generateStaticParams() {
+  return Object.keys(locales).map((lang) => ({ lang }));
+}
 
 export default async function RootLayout({
   children,
