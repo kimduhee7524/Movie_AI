@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 const locales = ['ko', 'en', 'ja'];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // 이미 언어 경로가 있는지 확인 
